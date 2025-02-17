@@ -1,11 +1,15 @@
 import clsx from 'clsx';
+import { useState } from 'react';
 import { Link, NavLink, NavLinkRenderProps } from 'react-router-dom';
-import Logo from '../atoms/Logo';
+
+import Logo from '@/components/atoms/Logo';
 import styles from './Navigation.module.css';
 
 function Navigation() {
-  const onActive = (render: NavLinkRenderProps) => {
-    return clsx('nav-button', render.isActive && 'active');
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const select = ({ isActive }: NavLinkRenderProps) => {
+    return clsx(isActive && styles.selected);
   };
 
   return (
@@ -13,15 +17,22 @@ function Navigation() {
       <Link to="/">
         <Logo className={styles.logo} />
       </Link>
-      <NavLink className={onActive} to=".">
+      <NavLink className={select} to=".">
         Home
       </NavLink>
-      <NavLink className={onActive} to="dashboard" caseSensitive>
+      <NavLink className={select} to="dashboard" caseSensitive>
         Dashboard
       </NavLink>
-      <NavLink className={onActive} to="login">
-        Login
-      </NavLink>
+
+      {loggedIn ? (
+        <Link to="/" onClick={() => setLoggedIn(false)}>
+          Logout
+        </Link>
+      ) : (
+        <Link to="login" onClick={() => setLoggedIn(true)}>
+          Login
+        </Link>
+      )}
     </nav>
   );
 }

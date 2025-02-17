@@ -1,30 +1,59 @@
 .nav {
-	gap: 10px;
-	height: 80px;
-	background-color: var(--clr-primary-a0);
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	padding: 0 20px;
+  gap: 20px;
+  height: 80px;
+  background-color: var(--clr-primary-a0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 20px;
 }
 
-.nav > :last-child {
-	flex: 0;
-	margin: 0 0 0 auto;
-	float: right;
+.nav > :nth-last-child(1) {
+  flex: 0;
+  margin: 0 0 0 auto;
+  float: right;
 }
 
-.nav > a {
-	color: var(--clr-surface-a10);
+.nav a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: var(--clr-surface-a10);
   font-family: var(--itchio_default_font, Lato), sans-serif;
-	text-decoration: none;
-	font-weight: 800;
-	font-size: 1.5em;
-	padding: 0 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.4em;
+}
+
+.nav a:first-child {
+  margin: 0 10px;
+  border: none;
+}
+
+.nav a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 0.2em;
+  left: 50%;
+  position: absolute;
+  background: var(--clr-main-a0);
+  transition:
+    width 0.1s ease 0s,
+    left 0.1s ease 0s;
+  width: 0;
+}
+
+.nav a:hover:after,
+.nav a.selected:after {
+  width: 100%;
+  left: 0;
 }
 
 .logo {
-	width: 50px;
-	height: 50px;
-	fill: white;
+  width: 50px;
+  height: 50px;
+  fill: white;
 }

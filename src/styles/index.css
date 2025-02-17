@@ -7,6 +7,8 @@
 }
 
 :root {
+  --clr-main-a0: #ff2449;
+
   --clr-primary-a0: #111111;
   --clr-primary-a10: #1b1b1b;
   --clr-surface-a0: #ababab;
@@ -60,6 +62,6 @@ p {
 a {
   font-size: inherit;
   color: #ff2449;
-	cursor: pointer;
-	pointer-events: all;
+  cursor: pointer;
+  pointer-events: all;
 }
