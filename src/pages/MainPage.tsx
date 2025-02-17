@@ -1,7 +1,9 @@
 const MainPage = () => {
   return (
-    <div>
-      <h1>Main</h1>
+    <div className="flex">
+      <div>
+        <h1>Hi</h1>
+      </div>
     </div>
   );
 };

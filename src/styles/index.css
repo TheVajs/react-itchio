@@ -34,21 +34,22 @@ body {
 }
 
 #root {
-  width: 100%;
-  height: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
-main {
+header {
+  min-height: 80px;
+}
+
+#root > main {
   flex: 1;
-  height: 100%;
 }
 
 footer {
-  flex: 0;
+  min-height: 200px;
 }
 
 button {
@@ -64,4 +65,12 @@ a {
   color: #ff2449;
   cursor: pointer;
   pointer-events: all;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
